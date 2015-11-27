@@ -14,7 +14,7 @@
     </head>
     <body>
         <h3>Please put your credentials</h3>
-        <form action="LoginServlet" method="get">
+        <form action="LoginServlet" method="post">
             <label>Username: </label>
             <input type="text" name="username" required="true"/>
             <br/>

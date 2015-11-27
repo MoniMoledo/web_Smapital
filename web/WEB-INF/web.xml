@@ -12,6 +12,10 @@
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>edu.smartpital.controller.LoginServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AptmtServlet</servlet-name>
+        <servlet-class>edu.smartpital.controller.AptmtServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>DbServlet</servlet-name>
         <url-pattern>/DbServlet</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AptmtServlet</servlet-name>
+        <url-pattern>/AptmtServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

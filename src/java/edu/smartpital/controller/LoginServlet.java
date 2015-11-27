@@ -104,9 +104,11 @@ public class LoginServlet extends HttpServlet {
             if(isPatient){
                 Patient pa = new Patient(dbname,dbemail,dbphone,dbstreet,dbcity,dbstate,dbage,dbhnumber,dbuser);
                 request.getSession().setAttribute("user",pa);
+                request.getSession().setAttribute("isPatient",isPatient);
             }else{
                 Medic me = new Medic(dbname,dbemail,dbphone,dbstreet,dbcity,dbstate,dbage,dbhnumber,dbuser,dbspecialty);
                 request.getSession().setAttribute("user",me);
+                request.getSession().setAttribute("isPatient",isPatient);
             }
         }else{
             //incorrect login!

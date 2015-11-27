@@ -14,6 +14,11 @@
     <body>
        <%@include file="/includes/check_login.jsp"%> 
         <h2>Hello, ${sessionScope.user.name}</h2>
+        
+        <form action="AptmtServlet" method="get">
+
+            <input type="submit" value="Show Appointments"/>
+        </form>
       
         
     </body>
