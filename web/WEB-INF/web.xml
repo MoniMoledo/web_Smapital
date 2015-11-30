@@ -20,6 +20,14 @@
         <servlet-name>InsertServlet</servlet-name>
         <servlet-class>edu.smartpital.controller.InsertServlet</servlet-class>
     </servlet>
+        <servlet>
+        <servlet-name>CancelServlet</servlet-name>
+        <servlet-class>edu.smartpital.controller.CancelServlet</servlet-class>
+    </servlet>
+        <servlet>
+        <servlet-name>FinishApServlet</servlet-name>
+        <servlet-class>edu.smartpital.controller.FinishApServlet</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>MedicServlet</servlet-name>
         <servlet-class>edu.smartpital.controller.MedicServlet</servlet-class>
@@ -55,6 +63,8 @@
     <servlet-mapping>
         <servlet-name>EndServlet</servlet-name>
         <url-pattern>/EndServlet</url-pattern>
+        </servlet-mapping>
+        <servlet-mapping>
         <servlet-name>CancelServlet</servlet-name>
         <url-pattern>/CancelServlet</url-pattern>
     </servlet-mapping>

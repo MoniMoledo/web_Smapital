@@ -16,10 +16,9 @@
     </head>
     <body>
         <%@include file="header.jsp"%> 
-        <div id="prereg">
+        <div class="text-center" id="prereg">
         <a class="btn btn-success" href="registerMedic.jsp" name="teste">Physician</a>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
         <a class="btn btn-info" href="registerPatient.jsp">Patient</a>
         </div>
          <%@include file="footer.jsp"%> 

@@ -12,19 +12,21 @@
         <link rel="stylesheet" href="includes/style/bootstrap-theme.css">
         <link rel="stylesheet" href="includes/style/main.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Profile</title>
     </head>
     <body>
        <%@include file="/includes/check_login.jsp"%> 
        <%@include file="header.jsp"%> 
-        <h2>Hello, ${sessionScope.user.name}</h2>
-        
-        <form action="AptmtServlet" method="get">
-            <input type="submit" value="Show Appointments"/>
+        <h2 class="text-center text-uppercase">Hello, ${sessionScope.user.name}</h2>
+        </br></br>
+        <form class="text-center" action="AptmtServlet" method="get">
+            <input class="btn btn-default" type="submit" value="Show Appointments"/>
         </form>
         </br>
         <c:if test="${sessionScope.isPatient}">
-            <a href="InsertServlet?action=getMedic">Schedule an appointment</a>
+            <form class="text-center" action="InsertServlet?action=getMedic" method="post">
+                <input class="btn btn-info" type="submit" value="Schedule an appointment"/>
+            </form>
         </c:if>
          <%@include file="footer.jsp"%> 
     </body>

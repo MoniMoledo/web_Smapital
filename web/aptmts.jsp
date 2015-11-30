@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="includes/style/bootstrap-theme.css">
         <link rel="stylesheet" href="includes/style/main.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Appointment</title>
         
 
         <script src="includes/js/jquery-2.1.4.js"></script>
@@ -25,8 +25,8 @@
             <div class="row">
                 <div class="col-md-10">
             
-        <p> Appointments </p>
-         <table class="table">
+        <h2 class="text-center text-capitalize"> Appointments </h2>
+         <table class="table table-bordered table-striped table-hover table-responsive" id="lblfntsize">
            
        <c:choose>
                 <c:when test="${sessionScope.isPatient==true}">
@@ -59,7 +59,7 @@
                 <td>
                     <c:if test="${ap.status == 'scheduled'}">
                      <form action="CancelServlet?apId=${ap.id}" method="post">
-                        <input type="submit" value="Cancel"/>
+                        <input class="btn btn-danger" type="submit" value="Cancel"/>
                     </form>
                     </c:if>          
                 </td>
@@ -98,7 +98,7 @@
                         <c:when test="${ap.prescription == '' && ap.status=='scheduled'}">
                             <form action="FinishApServlet?apId=${ap.id}" method="post">
                             <input type="text" name="newPrescription" />
-                            <input type="submit" value="Finish">
+                            <input class="btn btn-success" type="submit" value="Finish">
                             </form>
                         </c:when>
                         <c:otherwise>
@@ -109,7 +109,7 @@
                 <td>
                      <c:if test="${ap.status == 'scheduled'}">
                      <form action="CancelServlet?apId=${ap.id}" method="post">
-                        <input type="submit" value="Cancel"/>
+                        <input class="btn btn-danger" type="submit" value="Cancel"/>
                     </form>
                      </c:if>
                 </td>

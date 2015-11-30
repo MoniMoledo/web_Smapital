@@ -18,17 +18,18 @@
     <body>
         <%@include file="header.jsp"%> 
         <h3>Please put your credentials</h3>
-        <form action="LoginServlet" method="post">
-            <label>Username: </label>
-            <input type="text" name="username" required="true"/>
+        </br>
+        <form class="form-group" action="LoginServlet" method="post">
+            <label class="label label-primary" id="lblfntsize">Username: </label>
+            <input class="input-group" type="text" name="username" required="true"/>
             <br/>
-            <label>Password: </label>
-            <input type="password" name="password" required="true">
+            <label class="label label-primary" id="lblfntsize">Password: </label>
+            <input class="input-group" type="password" name="password" required="true">
             <br/>
-            <input type="submit" value="Log In!"/>
+            <input class="btn btn-toolbar btn-lg btn-success" type="submit" value="Log In!"/>
         </form>
         <c:if test="${requestScope.login_error != null}">
-            <span>${requestScope.login_error}</span>
+            </br> <span class="alert alert-danger">${requestScope.login_error}</span>
         </c:if>
              <%@include file="footer.jsp"%> 
     </body>

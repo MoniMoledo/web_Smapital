@@ -36,7 +36,7 @@ body,html{
     float:right;
 }
 #img-index{
-    height: 660px;
+    height: 880px;
     display: block;
     margin: auto;
 }
@@ -46,10 +46,13 @@ body,html{
 }
 #prereg{
     margin-top: 15%;
-    margin-left: 15%;
 }
+
 #prereg a{
     font-size: 108px;
+}
+#lblfntsize {
+    font-size: 16px;
 }
 
 

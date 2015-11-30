@@ -20,32 +20,35 @@
             }
         </script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>New Appointment</title>
     </head>
     <body>
         <%@include file="header.jsp"%> 
         <h2> New appointment: </h2>
-        <form action="InsertServlet?action=Insert" method="post">
-            <label>Select a specialty:</label>
-            <select onChange="getMedics();" name="specialty" id="specialty">
+        </br>
+        <form class="form-group" action="InsertServlet?action=Insert" method="post">
+            <label class="label label-primary" id="lblfntsize">Select a specialty:</label>
+            <select  onChange="getMedics();" name="specialty" id="specialty">
                 
                 <c:forEach var="spt" items="${sessionScope.specialties}">
                     <option value="${spt}"> <c:out value=" ${spt}"/> </option>
                 </c:forEach> 
             </select>
             <br/>
-            <label>Select a Physician:</label>
+            <br/>
+            <label class="label label-primary" id="lblfntsize">Select a Physician:</label>
             <select  name="medic" >
                 <c:forEach var="med" items="${requestScope.medics}">
                     <option value="${med.getKey()}"> ${med.getValue()} </option>
                 </c:forEach>
             </select>
             <br/>
-            <label>Date: </label>
-            <input type="date" name="date" required="true"/>
             <br/>
-            <label>Time: </label>
-            <select name="time">
+            <label class="label label-primary" id="lblfntsize">Date: </label>
+            <input class="input-group" type="date" name="date" required="true"/>
+            <br/>
+            <label class="label label-primary" id="lblfntsize">Time: </label>
+            <select  name="time">
                 <option value="08:00:00">8AM</option>
                 <option value="09:00:00">9AM</option>
                 <option value="10:00:00">10AM</option>
@@ -59,10 +62,10 @@
                 <option value="18:00:00">6PM</option>
             </select>
             <br/><br/>
-            <input type="submit" value="Create"/>
+            <input class="btn btn-success btn-lg" type="submit" value="Create"/>
         </form>
         <c:if test="${requestScope.error != null}">
-            <span>${requestScope.error}</span>
+            </br> <span class="alert alert-danger">${requestScope.error}</span>
         </c:if>
 
         

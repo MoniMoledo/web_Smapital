@@ -12,43 +12,43 @@
         <link rel="stylesheet" href="includes/style/bootstrap-theme.css">
         <link rel="stylesheet" href="includes/style/main.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>New Customer(?)</title>
+        <title>New Patient</title>
     </head>
     <body>
         <%@include file="header.jsp"%> 
         <h2> New Registration! </h2>
         <form action="RegisterServlet" method="get">
-            <label>Name: </label>
-            <input type="text" name="name" required="true"/>
+            <label class="label label-primary" id="lblfntsize">Name: </label>
+            <input class="input-group" type="text" name="name" required="true"/>
             <br/>
-            <label>Age: </label>
-            <input type="number" name="age" required="true"/>
+            <label class="label label-primary" id="lblfntsize">Age: </label>
+            <input class="input-group" type="number" name="age" required="true"/>
             <br/>
-            <label>SSN: </label>
-            <input type="text" name="ssn" required="true"/>
+            <label class="label label-primary" id="lblfntsize">SSN: </label>
+            <input class="input-group" type="text" name="ssn" required="true"/>
             <br/>
-            <label>Password: </label>
-            <input type="password" name="password" required="true"/>
+            <label class="label label-primary" id="lblfntsize">Password: </label>
+            <input class="input-group" type="password" name="password" required="true"/>
             <br/>
-            <label>Email: </label>
-            <input type="email" name="email" required="true"/>
+            <label class="label label-primary" id="lblfntsize">Email: </label>
+            <input class="input-group" type="email" name="email" required="true"/>
             <br/>
-            <label>Phone:  </label>
-            <input type="text" name="phone" required="true"/>
+            <label class="label label-primary" id="lblfntsize">Phone:  </label>
+            <input class="input-group" type="text" name="phone" required="true"/>
             <br/>
-            <label>Street: </label>
-            <input type="text" name="street" required="true"/>
+            <label class="label label-primary" id="lblfntsize">Street: </label>
+            <input class="input-group" type="text" name="street" required="true"/>
             <br/>
-            <label>Number: </label>
-            <input type="number" name="hnumber" required="true"/>
+            <label class="label label-primary" id="lblfntsize">Number: </label>
+            <input  class="input-group"type="number" name="hnumber" required="true"/>
             <br/>
-            <label>City: </label>
-            <input type="text" name="city" required="true"/>
+            <label class="label label-primary" id="lblfntsize">City: </label>
+            <input class="input-group" type="text" name="city" required="true"/>
             <br/>
-            <label>State: </label>
-            <input type="text" name="state" required="true"/>
+            <label class="label label-primary" id="lblfntsize">State: </label>
+            <input class="input-group" type="text" name="state" required="true"/>
             <br/>
-            <input type="submit" value="Register"/>
+            <input class="btn btn-lg btn-success btn-toolbar" type="submit" value="Register"/>
         </form>
          <%@include file="footer.jsp"%> 
     </body>
