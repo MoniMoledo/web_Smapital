@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="includes/style/bootstrap-theme.css">
         <link rel="stylesheet" href="includes/style/main.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>New Medic(?)</title>
+        <title>New Physician</title>
     </head>
     <body>
         <%@include file="header.jsp"%> 

@@ -14,6 +14,7 @@ import java.sql.Time;
  */
 public class Appointment {
     
+    private int id;
     private Medic med;
     private Patient pat;
     private Date date;
@@ -21,13 +22,22 @@ public class Appointment {
     private String status;
     private String prescription;
 
-    public Appointment(Medic med, Patient pat, Date date, Time time, String status, String prescription) {
+    public Appointment(int id, Medic med, Patient pat, Date date, Time time, String status, String prescription) {
+        this.id = id;
         this.med = med;
         this.pat = pat;
         this.date = date;
         this.time = time;
         this.status = status;
         this.prescription = prescription;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Medic getMed() {

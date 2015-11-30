@@ -5,18 +5,12 @@
  */
 package edu.smartpital.controller;
 
-import edu.smartpital.model.Patient;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Time;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -28,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Monique
  */
-public class InsertServlet extends HttpServlet {
+public class FinishApServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,59 +36,19 @@ public class InsertServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ClassNotFoundException, SQLException {
         
-        if(request.getParameter("action")!=null && request.getParameter("action").equals("getMedic") ){
-            DbConx db = new DbConx();
+        int apId = Integer.valueOf(request.getParameter("apId"));
+        String prescription = request.getParameter("newPrescription");
+         DbConx db = new DbConx();
             Connection c = db.getConn();
             PreparedStatement p = null;
-            ResultSet rs = null;
-            List<String> specialties = new ArrayList<String>();
-            specialties.add("---");
-            String stmt = "Select Distinct specialty from Medic;";
-            p=c.prepareStatement(stmt);
-            rs=p.executeQuery();
-            while(rs.next()){
-                specialties.add(rs.getString("specialty"));
-            }
-            request.getSession().setAttribute("specialties", specialties);
-             
-           this.getServletContext().getRequestDispatcher("/newaptmt.jsp").forward(request, response);
-            
-           
-         
-        }
-        
-         if(request.getParameter("action")!=null && request.getParameter("action").equals("Insert") ){
-            DbConx db = new DbConx();
-            Connection c = db.getConn();
-            PreparedStatement p = null;
-            ResultSet rs = null;
-            String specialty = request.getParameter("specialty");
-            String medcode = request.getParameter("medic");
-            
-            Patient pat = (Patient) request.getSession().getAttribute("user");
-            String date = request.getParameter("date");       
-            String time = request.getParameter("time");
-            date += " "+time;
-            
-            String stmt = "Select * from Appointment WHERE medcode='"+medcode+"' and date='"+date+"' and status='scheduled';";
-            p = c.prepareStatement(stmt);
-            rs =p.executeQuery();
-            if(rs.next()){
-              String msg = "Date and time not available. Please pick another time or date";
-              request.setAttribute("error", msg);
-              this.getServletContext().getRequestDispatcher("/newaptmt.jsp").forward(request, response);
-            }else{
-            String status = "scheduled";
-            String prescription = "";
-            
+            String status = "done";
             Statement st = null;            
-            stmt = "INSERT INTO Appointment (medcode,ssn,date,status,prescription) VALUES('"+medcode+"','"+pat.getSsn()+"','"+date+"','"+status+"','"+prescription+"');";           
+            String stmt = "UPDATE Appointment SET status='"+status+"', prescription='"+prescription+"' WHERE id="+apId+";";           
             st = c.createStatement();
             st.executeUpdate(stmt);
-            this.getServletContext().getRequestDispatcher("/AptmtServlet").forward(request, response);
-         
-            }
-        }
+           this.getServletContext().getRequestDispatcher("/AptmtServlet").forward(request, response);
+        
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -112,9 +66,9 @@ public class InsertServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(InsertServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FinishApServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(InsertServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FinishApServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -132,9 +86,9 @@ public class InsertServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(InsertServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FinishApServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(InsertServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FinishApServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

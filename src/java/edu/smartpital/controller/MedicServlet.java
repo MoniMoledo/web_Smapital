@@ -47,7 +47,8 @@ public class MedicServlet extends HttpServlet {
             specialties = (List<String>) request.getSession().getAttribute("specialties");
            // List < Pair<String,String> > lpair = new ArrayList< Pair<String,String> >();
            String chosenSpclt = request.getParameter("option");
-           if(chosenSpclt != null){
+           
+           if(chosenSpclt != null && !chosenSpclt.equals("---")){
                System.out.println("adsasdad");
             String stmt = "Select name,medcode from Medic where specialty= '"+chosenSpclt+"';";
             p=c.prepareStatement(stmt);
@@ -55,13 +56,17 @@ public class MedicServlet extends HttpServlet {
             while(rs.next()){
          //       lpair.add(new Pair(rs.getString("medcode"),rs.getString("name")));
             }
-          //     System.out.println(lpair.get(0).getKey());
-        //    request.setAttribute("medics", lpair);
+            request.setAttribute("medics", lpair);
            
             specialties.remove(chosenSpclt);
             specialties.add(0, chosenSpclt);
             request.getSession().setAttribute("specialties", specialties);
             }
+            if(chosenSpclt.equals("---")){
+                specialties.remove(chosenSpclt);
+                specialties.add(0, chosenSpclt);
+              this.getServletContext().getRequestDispatcher("/newaptmt.jsp").forward(request, response); 
+           }
 
             this.getServletContext().getRequestDispatcher("/newaptmt.jsp").forward(request, response);
     }

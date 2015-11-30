@@ -55,6 +55,12 @@
     <servlet-mapping>
         <servlet-name>EndServlet</servlet-name>
         <url-pattern>/EndServlet</url-pattern>
+        <servlet-name>CancelServlet</servlet-name>
+        <url-pattern>/CancelServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FinishApServlet</servlet-name>
+        <url-pattern>/FinishApServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
