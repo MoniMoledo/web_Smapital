@@ -79,7 +79,7 @@ public class AptmtServlet extends HttpServlet {
                 medp = new Medic(rs.getString("m.name"), rs.getString("m.email"), rs.getString("m.phone"), rs.getString("a.street"),
                     rs.getString("a.city"),rs.getString("a.state"), rs.getInt("m.age"),rs.getInt("a.hnumber"),rs.getString("ap.medcode"),rs.getString("m.specialty"));
                 teste = medp.getName();
-                ap = new Appointment(medp, pa, date, time, rs.getString("ap.status"), rs.getString("ap.prescription"));
+                ap = new Appointment(Integer.valueOf(rs.getString("ap.id")), medp, pa, date, time, rs.getString("ap.status"), rs.getString("ap.prescription"));
                 
                 aptmts.add(ap);
             }
@@ -99,7 +99,7 @@ public class AptmtServlet extends HttpServlet {
                 pam = new Patient(rs.getString("p.name"), rs.getString("p.email"), rs.getString("p.phone"), rs.getString("a.street"),
                     rs.getString("a.city"),rs.getString("a.state"), rs.getInt("p.age"),rs.getInt("a.hnumber"),rs.getString("ap.ssn"));
                 
-                ap = new Appointment(me, pam, date, time, rs.getString("ap.status"), rs.getString("ap.prescription"));               
+                ap = new Appointment(Integer.valueOf(rs.getString("ap.id")), me, pam, date, time, rs.getString("ap.status"), rs.getString("ap.prescription"));               
                 aptmts.add(ap);
         }}
             

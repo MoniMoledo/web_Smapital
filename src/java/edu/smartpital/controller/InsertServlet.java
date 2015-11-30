@@ -49,7 +49,7 @@ public class InsertServlet extends HttpServlet {
             PreparedStatement p = null;
             ResultSet rs = null;
             List<String> specialties = new ArrayList<String>();
-            specialties.add(" ");
+            specialties.add("---");
             String stmt = "Select Distinct specialty from Medic;";
             p=c.prepareStatement(stmt);
             rs=p.executeQuery();
@@ -60,6 +60,7 @@ public class InsertServlet extends HttpServlet {
              
            this.getServletContext().getRequestDispatcher("/newaptmt.jsp").forward(request, response);
             
+           
          
         }
         
@@ -71,23 +72,29 @@ public class InsertServlet extends HttpServlet {
             String specialty = request.getParameter("specialty");
             String medcode = request.getParameter("medic");
             
-            
-            
             Patient pat = (Patient) request.getSession().getAttribute("user");
             String date = request.getParameter("date");       
             String time = request.getParameter("time");
             date += " "+time;
             
+            String stmt = "Select * from Appointment WHERE medcode='"+medcode+"' and date='"+date+"' and status='scheduled';";
+            p = c.prepareStatement(stmt);
+            rs =p.executeQuery();
+            if(rs.next()){
+              String msg = "Date and time not available. Please pick another time or date";
+              request.setAttribute("error", msg);
+              this.getServletContext().getRequestDispatcher("/newaptmt.jsp").forward(request, response);
+            }else{
             String status = "scheduled";
             String prescription = "";
             
             Statement st = null;            
-            String stmt = "INSERT INTO Appointment (medcode,ssn,date,status,prescription) VALUES('"+medcode+"','"+pat.getSsn()+"','"+date+"','"+status+"','"+prescription+"');";           
+            stmt = "INSERT INTO Appointment (medcode,ssn,date,status,prescription) VALUES('"+medcode+"','"+pat.getSsn()+"','"+date+"','"+status+"','"+prescription+"');";           
             st = c.createStatement();
             st.executeUpdate(stmt);
-           this.getServletContext().getRequestDispatcher("/AptmtServlet").forward(request, response);
-            
+            this.getServletContext().getRequestDispatcher("/AptmtServlet").forward(request, response);
          
+            }
         }
     }
 

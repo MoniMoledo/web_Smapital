@@ -13,7 +13,7 @@
     </head>
     <body>
         <h2>Pick your type of customer</h2>
-        <a href="registerMedic.jsp" name="teste">Medic</a>
+        <a href="registerMedic.jsp" name="teste">Physician</a>
         <br/>
         <a href="registerPatient.jsp">Patient</a>
     </body>

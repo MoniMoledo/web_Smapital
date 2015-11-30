@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>New Medic(?)</title>
+        <title>New Physician</title>
     </head>
     <body>
         <h2> New Registration! </h2>

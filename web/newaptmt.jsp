@@ -30,7 +30,7 @@
                 </c:forEach> 
             </select>
             <br/>
-            <label>Select a Medic:</label>
+            <label>Select a Physician:</label>
             <select  name="medic" >
                 <c:forEach var="med" items="${requestScope.medics}">
                     <option value="${med.getKey()}"> ${med.getValue()} </option>
@@ -57,7 +57,9 @@
             <br/><br/>
             <input type="submit" value="Create"/>
         </form>
-        
+        <c:if test="${requestScope.error != null}">
+            <span>${requestScope.error}</span>
+        </c:if>
 
     </body>
 </html>

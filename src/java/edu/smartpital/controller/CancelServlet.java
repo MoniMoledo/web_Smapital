@@ -6,16 +6,12 @@
 package edu.smartpital.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.util.Pair;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -25,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Monique
  */
-public class MedicServlet extends HttpServlet {
+public class CancelServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,34 +38,13 @@ public class MedicServlet extends HttpServlet {
             DbConx db = new DbConx();
             Connection c = db.getConn();
             PreparedStatement p = null;
-            ResultSet rs = null;
-            List<String> specialties = new ArrayList<String>();
-            specialties = (List<String>) request.getSession().getAttribute("specialties");
-             
-           List < Pair<String,String> > lpair = new ArrayList< Pair<String,String> >();
-           String chosenSpclt = request.getParameter("option");
-           
-           if(chosenSpclt != null && !chosenSpclt.equals("---")){
-               System.out.println("adsasdad");
-            String stmt = "Select name,medcode from Medic where specialty= '"+chosenSpclt+"';";
-            p=c.prepareStatement(stmt);
-            rs=p.executeQuery();
-            while(rs.next()){
-                lpair.add(new Pair(rs.getString("medcode"),rs.getString("name")));
-            }
-            request.setAttribute("medics", lpair);
-           
-            specialties.remove(chosenSpclt);
-            specialties.add(0, chosenSpclt);
-            request.getSession().setAttribute("specialties", specialties);
-            }
-            if(chosenSpclt.equals("---")){
-                specialties.remove(chosenSpclt);
-                specialties.add(0, chosenSpclt);
-              this.getServletContext().getRequestDispatcher("/newaptmt.jsp").forward(request, response); 
-           }
-
-            this.getServletContext().getRequestDispatcher("/newaptmt.jsp").forward(request, response);
+            int apId = Integer.valueOf(request.getParameter("apId"));
+            String status = "cancelled";
+            Statement st = null;            
+            String stmt = "UPDATE Appointment SET status='"+status+"' WHERE id="+apId+";";           
+            st = c.createStatement();
+            st.executeUpdate(stmt);
+           this.getServletContext().getRequestDispatcher("/AptmtServlet").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -87,9 +62,9 @@ public class MedicServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(MedicServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CancelServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(MedicServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CancelServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -107,9 +82,9 @@ public class MedicServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(MedicServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CancelServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(MedicServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CancelServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

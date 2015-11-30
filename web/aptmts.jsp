@@ -26,36 +26,15 @@
         <p> Appointments </p>
          <table class="table">
            
-      <%--  <c:forEach var="ap" items="${requestScope.aptmts}">
-            
-            <tr>
-                <td>
-                   ${ap.med.name}
-                </td>
-                   <td>
-                    ${ap.date}
-                </td>
-                   <td>
-                    ${ap.time}
-                </td>
-                <td>
-                    ${ap.status}
-                </td>
-                <td>
-                    ${ap.prescription}
-                </td>
-            </tr>
-       
-        </c:forEach> --%>
-      
        <c:choose>
                 <c:when test="${sessionScope.isPatient==true}">
                      <tr>
-                <th>Medic </th>
+                <th>Physician</th>
                 <th>Date</th>
                 <th>Time</th>
                 <th>Status</th>
                 <th>Prescription</th>
+                <th>Cancel</th>
             </tr>
                     <c:forEach var="ap" items="${requestScope.aptmts}">
             
@@ -73,7 +52,14 @@
                     ${ap.status}
                 </td>
                 <td>
-                    ${ap.prescription}
+                  ${ap.prescription}
+                </td>
+                <td>
+                    <c:if test="${ap.status == 'scheduled'}">
+                     <form action="CancelServlet?apId=${ap.id}" method="post">
+                        <input type="submit" value="Cancel"/>
+                    </form>
+                    </c:if>          
                 </td>
             </tr>
        
@@ -87,6 +73,7 @@
                 <th>Time</th>
                 <th>Status</th>
                 <th>Prescription</th>
+                <th>Cancel</th>
             </tr>
                     <c:forEach var="ap" items="${requestScope.aptmts}">
             
@@ -103,8 +90,26 @@
                 <td>
                     ${ap.status}
                 </td>
+                
+                    <td>
+                    <c:choose>
+                        <c:when test="${ap.prescription == '' && ap.status=='scheduled'}">
+                            <form action="FinishApServlet?apId=${ap.id}" method="post">
+                            <input type="text" name="newPrescription" />
+                            <input type="submit" value="Finish">
+                            </form>
+                        </c:when>
+                        <c:otherwise>
+                             ${ap.prescription}
+                        </c:otherwise>
+                    </c:choose>                  
+                </td>
                 <td>
-                    ${ap.prescription}
+                     <c:if test="${ap.status == 'scheduled'}">
+                     <form action="CancelServlet?apId=${ap.id}" method="post">
+                        <input type="submit" value="Cancel"/>
+                    </form>
+                     </c:if>
                 </td>
             </tr>
        
@@ -115,5 +120,7 @@
                      </div>
                  </div>
         </div>
+        
+        
     </body>
 </html>
