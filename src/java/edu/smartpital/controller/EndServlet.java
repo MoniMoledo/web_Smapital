@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author fenius
  */
-public class LogoutServlet extends HttpServlet {
+public class EndServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,6 +29,7 @@ public class LogoutServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         request.getSession().removeAttribute("user");
         this.getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
     }

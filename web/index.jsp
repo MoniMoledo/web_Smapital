@@ -8,13 +8,15 @@
 <!DOCTYPE html>
 <html>
     <head>
+         <link rel="stylesheet" href="includes/style/main.css">
+         <link rel="stylesheet" href="includes/style/bootstrap.css">
+        <link rel="stylesheet" href="includes/style/bootstrap-theme.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Smarpital</title>
     </head>
     <body>
-        <h1>Welcome to Smarpital!</h1>
-        <a href="preRegistration.jsp">Sign Up!</a>
-        <br/>
-        <a href="login.jsp">Sign In!</a>
+        <%@include file="header.jsp"%> 
+        <img id="img-index" src="includes/resources/smarpital-index.jpg"/>
+         <%@include file="footer.jsp"%> 
     </body>
 </html>

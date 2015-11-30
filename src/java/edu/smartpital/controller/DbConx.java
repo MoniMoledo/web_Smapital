@@ -20,7 +20,7 @@ public class DbConx {
     public DbConx() throws ClassNotFoundException{
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost/SMARPITAL?user=webUser&password=1234");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost/SMARPITAL?user=root&password=loro123");
         }catch(SQLException sqle){
             System.out.println("SQLException: " + sqle.getMessage());
             System.out.println("SQLState: " + sqle.getSQLState());

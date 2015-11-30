@@ -9,6 +9,9 @@
 <!DOCTYPE html>
 <html>
     <head>
+         <link rel="stylesheet" href="includes/style/bootstrap.css">
+        <link rel="stylesheet" href="includes/style/bootstrap-theme.css">
+        <link rel="stylesheet" href="includes/style/main.css">
         <script type="text/javascript">
             function getMedics(){
                     var element = document.getElementById("specialty");
@@ -20,6 +23,7 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <%@include file="header.jsp"%> 
         <h2> New appointment: </h2>
         <form action="InsertServlet?action=Insert" method="post">
             <label>Select a specialty:</label>
@@ -58,6 +62,6 @@
             <input type="submit" value="Create"/>
         </form>
         
-
+ <%@include file="footer.jsp"%> 
     </body>
 </html>

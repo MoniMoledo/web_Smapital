@@ -9,16 +9,18 @@
 <!DOCTYPE html>
 <html>
     <head>
+         <link rel="stylesheet" href="includes/style/bootstrap.css">
+        <link rel="stylesheet" href="includes/style/bootstrap-theme.css">
+        <link rel="stylesheet" href="includes/style/main.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <link rel="stylesheet" href="includes/style/bootstrap.css">
-        <link rel="stylesheet" href="includes/style/bootstrap-theme.css">
-        <link rel="stylesheet" href="includes/style/cs3520.css">
+        
 
         <script src="includes/js/jquery-2.1.4.js"></script>
         <script src="includes/js/bootstrap.js"></script>
     </head>
     <body>
+        <%@include file="header.jsp"%> 
            <div style="container">
             <div class="row">
                 <div class="col-md-10">
@@ -115,5 +117,6 @@
                      </div>
                  </div>
         </div>
+       <%@include file="footer.jsp"%> 
     </body>
 </html>

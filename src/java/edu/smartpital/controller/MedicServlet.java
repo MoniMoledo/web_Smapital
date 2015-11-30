@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.util.Pair;
+//import javafx.util.Pair;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -45,7 +45,7 @@ public class MedicServlet extends HttpServlet {
             ResultSet rs = null;
             List<String> specialties = new ArrayList<String>();
             specialties = (List<String>) request.getSession().getAttribute("specialties");
-            List < Pair<String,String> > lpair = new ArrayList< Pair<String,String> >();
+           // List < Pair<String,String> > lpair = new ArrayList< Pair<String,String> >();
            String chosenSpclt = request.getParameter("option");
            if(chosenSpclt != null){
                System.out.println("adsasdad");
@@ -53,10 +53,10 @@ public class MedicServlet extends HttpServlet {
             p=c.prepareStatement(stmt);
             rs=p.executeQuery();
             while(rs.next()){
-                lpair.add(new Pair(rs.getString("medcode"),rs.getString("name")));
+         //       lpair.add(new Pair(rs.getString("medcode"),rs.getString("name")));
             }
-               System.out.println(lpair.get(0).getKey());
-            request.setAttribute("medics", lpair);
+          //     System.out.println(lpair.get(0).getKey());
+        //    request.setAttribute("medics", lpair);
            
             specialties.remove(chosenSpclt);
             specialties.add(0, chosenSpclt);

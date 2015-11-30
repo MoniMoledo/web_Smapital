@@ -8,10 +8,14 @@
 <!DOCTYPE html>
 <html>
     <head>
+         <link rel="stylesheet" href="includes/style/bootstrap.css">
+        <link rel="stylesheet" href="includes/style/bootstrap-theme.css">
+        <link rel="stylesheet" href="includes/style/main.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>New Customer(?)</title>
     </head>
     <body>
+        <%@include file="header.jsp"%> 
         <h2> New Registration! </h2>
         <form action="RegisterServlet" method="get">
             <label>Name: </label>
@@ -46,5 +50,6 @@
             <br/>
             <input type="submit" value="Register"/>
         </form>
+         <%@include file="footer.jsp"%> 
     </body>
 </html>

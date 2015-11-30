@@ -24,6 +24,10 @@
         <servlet-name>MedicServlet</servlet-name>
         <servlet-class>edu.smartpital.controller.MedicServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EndServlet</servlet-name>
+        <servlet-class>edu.smartpital.controller.EndServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>DbServlet</servlet-name>
         <url-pattern>/DbServlet</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>MedicServlet</servlet-name>
         <url-pattern>/MedicServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EndServlet</servlet-name>
+        <url-pattern>/EndServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

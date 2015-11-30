@@ -8,13 +8,20 @@
 <!DOCTYPE html>
 <html>
     <head>
+         <link rel="stylesheet" href="includes/style/bootstrap.css">
+        <link rel="stylesheet" href="includes/style/bootstrap-theme.css">
+        <link rel="stylesheet" href="includes/style/main.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Choose One</title>
     </head>
     <body>
-        <h2>Pick your type of customer</h2>
-        <a href="registerMedic.jsp" name="teste">Medic</a>
-        <br/>
-        <a href="registerPatient.jsp">Patient</a>
+        <%@include file="header.jsp"%> 
+        <div id="prereg">
+        <a class="btn btn-success" href="registerMedic.jsp" name="teste">Physician</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="btn btn-info" href="registerPatient.jsp">Patient</a>
+        </div>
+         <%@include file="footer.jsp"%> 
     </body>
 </html>

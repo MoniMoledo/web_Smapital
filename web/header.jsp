@@ -9,19 +9,22 @@
 
 <header class="header">
     <div id="header-wrapper">
-        <div id="header-logo"><h3>Welcome to Smarpital!</h3></div>
+        <div id="header-logo">
+            <img id="img-logo" src="includes/resources/smarpital-logo.png"/>
+            
+        </div>
         <div id="header-login">
             <div id="menu-login">
                 <c:choose>
                 <c:when test="${sessionScope.user == null }">
-                     <p> <a href="preRegistration.jsp">Sign Up!</a>
-                         <a href="login.jsp">Sign In!</a> </p>
+                     <p> <a class="btn btn-warning" href="preRegistration.jsp">Sign Up!</a>
+                         <a class="btn btn-info" href="login.jsp">Sign In!</a> </p>
                 </c:when>
                     <c:otherwise>
                      <p>
-                         <a href="/index.jsp"> Home </a> &nbsp;
-                         <a href="profile.jsp">${sessionScope.user.name}</a>
-                         &nbsp; <a href="LogoutServlet"> Logout</a></p>
+                         <a class="btn btn-default" href="index.jsp"> Home </a> &nbsp;
+                         <a class="btn btn-warning" href="profile.jsp">${sessionScope.user.name}</a>
+                         &nbsp; <a class="btn btn-danger" href="EndServlet"> Logout</a></p>
                     </c:otherwise>
                 </c:choose>
             </div>

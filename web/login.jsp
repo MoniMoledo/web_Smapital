@@ -9,10 +9,14 @@
 <!DOCTYPE html>
 <html>
     <head>
+         <link rel="stylesheet" href="includes/style/bootstrap.css">
+        <link rel="stylesheet" href="includes/style/bootstrap-theme.css">
+        <link rel="stylesheet" href="includes/style/main.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login</title>
     </head>
     <body>
+        <%@include file="header.jsp"%> 
         <h3>Please put your credentials</h3>
         <form action="LoginServlet" method="post">
             <label>Username: </label>
@@ -26,5 +30,6 @@
         <c:if test="${requestScope.login_error != null}">
             <span>${requestScope.login_error}</span>
         </c:if>
+             <%@include file="footer.jsp"%> 
     </body>
 </html>
